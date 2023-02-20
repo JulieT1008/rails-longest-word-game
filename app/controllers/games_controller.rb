@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 
   def score
     if check_grid == true
-      @answer = "Sorry but #{params[:answer].upcase} can't be build out of #{params[:letters].upcase}"
+      @answer = "Sorry but #{params[:answer].upcase} can't be build out of #{params[:letters].upcase}."
     elsif parsing == false
       @answer = "Sorry but #{params[:answer].upcase} does not seem to ba a valid english word.."
     else
@@ -27,8 +27,9 @@ class GamesController < ApplicationController
   def check_grid
     results = []
     word = params[:answer].split("")
+    array = params[:letters].split(", ")
     word.each do |letter|
-      results << params[:letters].include?(letter)
+      results << array.include?(letter)
     end
     results.include?(false)
   end
