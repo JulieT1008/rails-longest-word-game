@@ -1,3 +1,6 @@
+require "json"
+require "open-uri"
+
 class GamesController < ApplicationController
   def new
     @letters = generate_letter
